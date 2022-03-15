@@ -14,7 +14,8 @@
       "program": "/Users/jcw/Coding/C/build/Debug/outDebug",
       "internalConsoleOptions": "openOnSessionStart",
       "MIMode": "gdb",
-      "externalConsole": false
+      "externalConsole": false,
+      "preLaunchTask": "C/C++: clang++ 활성 파일 빌드"
     }
   ]
 }
