@@ -7,5 +7,9 @@ int main(){
     int a;
     cout<<"what : ";
     cin>>a;
-    cout<<a;
+    cout<<a<<endl;
+    cout<<"name : ";
+    char name[30];
+    cin>>name;
+    cout<<name;
 }
