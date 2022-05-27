@@ -23,7 +23,6 @@ int main(){
 
     Palette* p = new Palette;
     p=&c;
-    Palette aaa;
-    aaa=getPalette();
+    Palette aaa;ㄴ
     delete p;
 }

@@ -30,6 +30,8 @@
   "files.associations": {
     "sstream": "cpp",
     "ostream": "cpp",
-    "string": "cpp"
+    "string": "cpp",
+    "cstring": "cpp",
+    "iostream": "cpp"
   }
 }

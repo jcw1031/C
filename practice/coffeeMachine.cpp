@@ -14,7 +14,7 @@ int main(){
 		if(index==-1){
 			sum+=stoi(str);
 			cout<<str<<endl;
-  			break;
+			break;
 		}
 		sub=str.substr(0, index);
 		cout<<sub<<endl;
