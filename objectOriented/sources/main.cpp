@@ -23,10 +23,13 @@ int* ArrayUtility2::concat(int s1[], int s2[], int size){
 
 int* ArrayUtility2::remove(int s1[], int s2[], int size, int& retSize){
     int count=0;
+    int tmp;
     for(int i=0;i<size/2;i++){
         for(int j=0;j<size/2;j++){
-            if(s1[i]==s2[j]){
+            tmp=s1[i];
+            if(tmp==s1[i]&&s1[i]==s2[i]){
                 s1[i]=NULL;
+                cout<<"i : "<<i<<endl;
                 count++;
             }
         }
