@@ -5,6 +5,9 @@ class Power{
     int kick;
     int punch;
     public:
+    virtual void test(){
+        cout<<"Power"<<endl;
+    }
     Power(int kick=0, int punch=0){
         this->kick=kick;
         this->punch=punch;
@@ -28,14 +31,27 @@ class Power{
         else return false;
     }
 
+    Power operator ++(){
+        kick++;
+        punch++;
+        return *this;
+    }
     Power operator ++(int x){
-        Power tmp = *this;
+        Power tmp=*this;
         kick++;
         punch++;
         return tmp;
     }
+
     int getKick(){
         return this->kick;
+    }
+};
+
+class Pp : public Power{
+    public:
+    void test(){
+        cout<<"Pp"<<endl;
     }
 };
 
@@ -48,6 +64,19 @@ int main(){
     (a+=b)+=b;
     cout<<a.getKick()<<endl;
     bool aa=a==a;
-    cout<<aa;
-    a++;
+    cout<<aa<<endl;
+    Power aaa = ++a;
+    Power aaaa = a++;
+    cout<<aaa.getKick()<<endl;
+    cout<<aaaa.getKick()<<endl;
+    cout<<a.getKick()<<endl;
+
+
+    Power* p;
+    Pp pp;
+    p=&pp;
+    Power* p2 = new Pp();
+
+    p->test();
+    p2->test();
 }
