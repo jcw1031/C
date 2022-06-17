@@ -1,37 +1,39 @@
 #include <iostream>
+#include "Shape.h"
+#include "Circle.h"
+#include "Rect.h"
+#include "Line.h"
 using namespace std;
 
-class A{
-    public:
-    void func(){
-        f();
-    }
-    virtual void f(){
-        cout<<"A"<<endl;
-    }
-};
-
-class B : public A{
-    public:
-    void f(){
-        cout<<"B"<<endl;
-    }
-};
-
-class C : public B{
-    public:
-    void f(){
-        cout<<"C"<<endl;
-    }
-};
-
 int main(){
-    C c;
-    c.f();
-    A* pa;
-    B* pb;
-    pa=pb=&c;
-    pb->f();
-    pa->f();
-    pa->func();
+    Shape* pStart = NULL;
+    Shape* pLast;
+
+    pStart = new Circle();
+    pLast=pStart;
+
+    pLast = pLast->add(new Rect());
+    pLast=pLast->add(new Line());
+    pLast=pLast->add(new Circle());
+    pLast=pLast->add(new Line());
+
+    Shape* p=pStart;
+    while(p!=NULL){
+        p->paint();
+        p=p->getNext();
+    }
+
+    Shape* q;
+    p=pStart;
+    while(p!=NULL){
+        q=p->getNext();
+        delete p;
+        p=q;
+    }
+
+    p=pStart;
+    while(p!=NULL){
+        p->paint();
+        p=p->getNext();
+    }
 }
