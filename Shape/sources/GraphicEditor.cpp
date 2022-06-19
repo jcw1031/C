@@ -21,5 +21,5 @@ int main(){
     Base *p;
     p=new Derived();
 
-    p->(Dervied)f();
+    
 }
