@@ -1,60 +1,22 @@
 #include <iostream>
+#include <map>
 using namespace std;
 
-class Base{
-    int a;
-protected:
-    int b;
-public:
-    int c;
+long long N, P, Q;
+map<long long, long long> dp;
 
-    void set(int a){
-        this->a=a;
-    }
-    int get(){
-        return a;
-    }
-    void paint(){
-        draw();
-    }
-    virtual void draw(){
-        cout<<"Base::draw()"<<endl;
-    }
-    virtual ~Base(){
-        cout<<"~Base()"<<endl;
-    }
-};
+long long dfs(long long x) {
 
-class Derived1 : public Base{
-public:
-    void test(int a){
-        this->b=a;
-        this->c=a;
-    }
+	if (dp.find(x) != dp.end()) return dp[x];
+	return dp[x] = dfs(x / P) + dfs(x / Q);
+}
 
-    int getA(){
-        return get();
-    }
-
-    virtual void draw(){
-        cout<<"Derived::draw()"<<endl;
-    }
-
-    ~Derived1(){
-        cout<<"~Derived()"<<endl;
-    }
-};
-
-int main(){
-    /*Derived d;
-    Derived* pDer = &d;
-    Base* pBase = pDer; //업 캐스팅
-
-    pBase->set(10);
-    cout<< pBase->get()<<endl;
-    cout<<pDer->getA()<<endl;*/
-
-    Base *pBase = new Derived1();
-    pBase->paint();
-    delete pBase;
+int main(void) {
+    cout<<dp[0]<<endl;
+	cin.tie(0), ios_base::sync_with_stdio(0);
+	cin >> N >> P >> Q;
+	dp[0] = 1;
+    
+    if(N == 1) cout<<dp[0];
+    else cout << dfs(N/P)+dfs(N/Q);
 }
